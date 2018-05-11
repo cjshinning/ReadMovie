@@ -11,7 +11,7 @@ function covertToStarsArray(stars) {
   return array
 }
 
-function http(url,callback) {
+function http(url, callback) {
   wx.request({
     url: url,
     method: 'GET',
@@ -24,7 +24,28 @@ function http(url,callback) {
   })
 }
 
+function convertToCastString(casts) {
+  var castsjoin = ''
+  for (var idx in casts) {
+    castsjoin = castsjoin + casts[idx].name + '/'
+  }
+}
+
+function convertToCastInfos(casts) {
+  var castsArray = []
+  for (var idx in casts) {
+    var cast = {
+      img: casts[idx].avatars ? casts[idx].avatars.large : '',
+      name: casts[idx].name
+    }
+    castsArray.push(cast)
+  }
+  return castsArray
+}
+
 module.exports = {
   covertToStarsArray: covertToStarsArray,
-  http: http
+  http: http,
+  convertToCastString: convertToCastString,
+  convertToCastInfos: convertToCastInfos
 }
