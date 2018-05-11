@@ -1,4 +1,5 @@
 text{
   font-family: Micosoft Hahei;
   font-size: 24rpx;
+  color: #666;
 }
