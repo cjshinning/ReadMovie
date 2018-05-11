@@ -18,6 +18,13 @@ Page({
     this.getMovieListData(top250Url,'top250','豆瓣Top250')
   },
 
+  onMoreTap: function(event){
+    var categary = event.currentTarget.dataset.categary
+    wx.navigateTo({
+      url: 'more-movie/more-movie?categary=' + categary
+    })
+  },
+
   getMovieListData: function (url, settedKey, categaryTitle){
     var that = this
     wx.request({

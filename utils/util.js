@@ -11,6 +11,20 @@ function covertToStarsArray(stars) {
   return array
 }
 
+function http(url,callback) {
+  wx.request({
+    url: url,
+    method: 'GET',
+    success: function (res) {
+      callback(res.data)
+    },
+    fail: function (error) {
+      console.log(error)
+    }
+  })
+}
+
 module.exports = {
-  covertToStarsArray: covertToStarsArray
+  covertToStarsArray: covertToStarsArray,
+  http: http
 }
